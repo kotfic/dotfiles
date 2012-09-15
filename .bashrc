@@ -114,5 +114,7 @@ if [ `id -u` != '0' ]; then
 
 fi
 
+export TERM=xterm-256color
+
 export EDITOR=/usr/bin/emacs
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
