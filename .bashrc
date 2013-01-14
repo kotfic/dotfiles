@@ -40,12 +40,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -115,6 +115,23 @@ if [ `id -u` != '0' ]; then
 fi
 
 export TERM=xterm-256color
-
 export EDITOR=/usr/bin/emacs
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PATH=$PATH:$HOME/lib/python2.7/site-packages/phpsh # Add phpsh
+export PYTHONPATH=~/lib/python2.7/site-packages/
+
+function ediff() {
+        if [ "X${2}" = "X" ]; then
+                echo "USAGE: ediff <FILE 1> <FILE 2>"
+                else
+                # The --eval flag takes lisp code and evaluates it with EMACS
+                emacs --eval "(ediff-files \"$1\" \"$2\")"
+fi
+}
+
+function xdebug() {
+        export XDEBUG_CONFIG="idekey=$1"
+        echo $XDEBUG_CONFIG
+}
