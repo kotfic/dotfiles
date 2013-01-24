@@ -40,12 +40,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -104,7 +104,7 @@ fi
 if [ `id -u` != '0' ]; then
 
   export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv"
-  export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
+  export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
   export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
   export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute
   export WORKON_HOME=$HOME/.virtualenvs       # <-- Where all virtualenvs will be stored
@@ -118,3 +118,29 @@ export TERM=xterm-256color
 
 export EDITOR=/usr/bin/emacs
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+
+function ediff() {
+        if [ "X${2}" = "X" ]; then
+                echo "USAGE: ediff <FILE 1> <FILE 2>"
+                else
+                # The --eval flag takes lisp code and evaluates it with EMACS
+                emacs --eval "(ediff-files \"$1\" \"$2\")"
+fi
+}
+
+function xdebug() {
+        export XDEBUG_CONFIG="idekey=$1"
+        echo $XDEBUG_CONFIG
+}
+
+
+
+export PATH=$PATH:/usr/sbin
+
+export WORKON_HOME=~/.envs
+source /usr/local/bin/virtualenvwrapper.sh
+
+
+export ALTERNATE_EDITOR=""
+alias e='emacsclient -t'
