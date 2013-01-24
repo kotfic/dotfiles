@@ -115,9 +115,10 @@ if [ `id -u` != '0' ]; then
 fi
 
 export TERM=xterm-256color
-
 export EDITOR=/usr/bin/emacs
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/lib/python2.7/site-packages/phpsh # Add phpsh
+export PYTHONPATH=~/lib/python2.7/site-packages/
 
 
 function ediff() {
@@ -133,7 +134,6 @@ function xdebug() {
         export XDEBUG_CONFIG="idekey=$1"
         echo $XDEBUG_CONFIG
 }
-
 
 
 export PATH=$PATH:/usr/sbin
