@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec /home/kotfic/source/stumpwm/stumpwm
+exec /usr/local/bin/stumpwm

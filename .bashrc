@@ -135,3 +135,6 @@ function xdebug() {
         export XDEBUG_CONFIG="idekey=$1"
         echo $XDEBUG_CONFIG
 }
+
+
+export LC_CTYPE=en_US.UTF-8
