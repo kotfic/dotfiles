@@ -104,7 +104,7 @@ fi
 if [ `id -u` != '0' ]; then
 
   export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv"
-  export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
+  export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
   export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
   export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute
   export WORKON_HOME=$HOME/.virtualenvs       # <-- Where all virtualenvs will be stored
@@ -116,11 +116,10 @@ fi
 
 export TERM=xterm-256color
 export EDITOR=/usr/bin/emacs
-
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 export PATH=$PATH:$HOME/lib/python2.7/site-packages/phpsh # Add phpsh
 export PYTHONPATH=~/lib/python2.7/site-packages/
+
 
 function ediff() {
         if [ "X${2}" = "X" ]; then
@@ -137,4 +136,13 @@ function xdebug() {
 }
 
 
+
 export LC_CTYPE=en_US.UTF-8
+
+export PATH=$PATH:/usr/sbin
+export WORKON_HOME=~/.envs
+source /usr/local/bin/virtualenvwrapper.sh
+
+
+export ALTERNATE_EDITOR=""
+alias e='emacsclient -t'
