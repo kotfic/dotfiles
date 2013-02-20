@@ -1,0 +1,7 @@
+define_webjump("g", "http://www.google.com/search?q=%s");
+
+minibuffer_auto_complete_default = true;
+
+// url_remoting_fn = load_url_in_new_buffer;
+
+mode_line_mode(false);
