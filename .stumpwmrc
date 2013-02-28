@@ -86,3 +86,15 @@ exit of its own accord, Stumpwm might hang!"
    "gnewbg 2:2"
    )
 )
+
+
+;; Select a random background image from a given folder
+
+;; Define the background window
+(defvar *background-image-path* "/home/kotfic/wallpaper/")
+(defun select-random-background-image ()
+  "Select a random image"
+  (let ((file-list (directory (concatenate 'string *background-image-path* "*")))
+        (*random-state* (make-random-state t)))
+    (namestring (nth (random (length file-list)) file-list))))
+(run-shell-command (concatenate 'string "feh --bg-scale " (select-random-background-image)))
