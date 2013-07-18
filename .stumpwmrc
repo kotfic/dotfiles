@@ -1,7 +1,4 @@
-;; StumpWM Init File
-
-(cl:load "/home/kotfic/lib/dists/quicklisp/software/slime-20130217-cvs/swank-loader.lisp")
-(swank-loader:init)
+;; StumpWM Init File-
 
 (in-package :stumpwm)
 
@@ -10,12 +7,13 @@
 (setf *mouse-focus-policy* :sloppy)
 
 (defcommand swank () ()
-            (setf stumpwm:*top-level-error-action* :break)
-            (swank:create-server :port 4005
-                                 :style swank:*communication-style*
-                                 :dont-close t)
-   (echo-string (current-screen)
-                "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
+  "Start the swank server for the current stumpwm process"
+  (setf stumpwm:*top-level-error-action* :break)
+  (swank:create-server :port 4005
+                       :style swank:*communication-style*
+                       :dont-close t)
+  (echo-string (current-screen)
+               "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
 
 
 
@@ -25,6 +23,24 @@ This must be used in a functional side-effects-free style! If a program does not
 exit of its own accord, Stumpwm might hang!"
   (check-type command string)
   (echo-string (current-screen) (run-shell-command command t)))
+
+
+(defcommand skype () ()
+  "Load skype with the skype user"
+  (run-shell-command "xhost +local: && sudo -u skype /usr/bin/skype"))
+
+; currently non-functional - ARG!
+;(defcommand kill-skype () ()
+;  "Kill the skype process entirely - note requires
+;   'kotfic ALL=(ALL) NOPASSWD: /bin/kill'
+;   or something similar in /etc/sudoers
+;  "
+;  (let ((skype-pid (run-shell-command "pgrep skype" t)))
+;    (run-shell-command (concatenate 'string "sudo kill -9 " skype-pid))))
+
+(defcommand power () ()
+  "Display the current power usage"
+  (shell-command "acpi"))
 
 (defun getx (coords)
   (parse-integer (subseq coords 0 1)))
@@ -63,8 +79,7 @@ exit of its own accord, Stumpwm might hang!"
 (add-hook *focus-group-hook* (lambda (curr-group prev-group) (message (group-name curr-group))))
 
 (defcommand gen-terminal () ()
-  (run-shell-command "gnome-terminal")
-  (run-shell-command "/home/kotfic/bin/terminal-transparency") )
+  (run-shell-command "gnome-terminal --hide-menubar; sleep .25; /home/kotfic/bin/terminal-transparency"))
 
 (define-key *top-map* (kbd "C-E") "exec")
 ;(define-key *top-map* (kbd "C-i") "exec chromium")
@@ -90,10 +105,13 @@ exit of its own accord, Stumpwm might hang!"
 )
 
 
+
+;; Start the windows manager
+(when (equal (run-shell-command "pgrep compton" t) "")
+  (run-shell-command "compton --config ~/.compton.conf -b" ))
+
+
 ;; Select a random background image from a given folder
-
-;; Define the background window
-
 (defun select-random-background-image ()
   "Select a random image"
   (let ((file-list (directory "/home/kotfic/.wallpaper/*.*"))
@@ -103,6 +121,3 @@ exit of its own accord, Stumpwm might hang!"
 (run-shell-command (concatenate 'string
                                 "feh --bg-scale "
                                 (select-random-background-image)))
-
-
-(run-shell-command "compton --config ~/.compton.conf -b" )

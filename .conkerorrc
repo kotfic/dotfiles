@@ -6,7 +6,17 @@ minibuffer_auto_complete_default = true;
 
 mode_line_mode(false);
 
-load(make_file("~/.conkeror.mozdev.org/assembla_space_ids.js"))
+// load(make_file("~/.conkeror.mozdev.org/assembla_space_ids.js"))
+
+
+interactive("picture-mode",
+            "Treat tabs like pictures",
+            function picture_mode_func(I){
+                define_key(content_buffer_normal_keymap, "right", "buffer-next");
+                define_key(content_buffer_normal_keymap, "left", "buffer-previous");
+                define_key(content_buffer_normal_keymap, "k", "kill-buffer");
+                I.window.minibuffer.message("picture-mode")
+            });
 
 
 interactive("assembla-spot-check-space-urls",
@@ -24,5 +34,5 @@ interactive("assembla-spot-check-space-urls",
                     load_url_in_new_buffer(url_format.replace("%s", assembla_space_ids[Math.floor(Math.random()*assembla_space_ids.length)]));
                 }
 
-                    I.window.minibuffer.message("Opened " + num_spaces + " new buffers.");
-                });
+                I.window.minibuffer.message("Opened " + num_spaces + " new buffers.");
+            });
