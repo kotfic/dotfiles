@@ -1,5 +1,6 @@
 #/bin/bash
 
+PWD=$(pwd)
 DOTDIR=~/.dot
 
 mklink(){
@@ -19,6 +20,7 @@ mklink(){
     fi   
 }
 
+cd $DOTDIR && git pull && cd $PWD
 
 mklink ~/.bash_profile
 mklink ~/.bashrc
