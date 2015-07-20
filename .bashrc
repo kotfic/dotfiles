@@ -118,11 +118,13 @@ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/
 
 
 # Virtualenv wrapper
-export WORKON_HOME=~/.venvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
 
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages -p /usr/bin/python2'
-export VIRTUALENV_WRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+if [ -f $VIRTUALENV_WRAPPER_SCRIPT ]; then
+    export WORKON_HOME=~/.venvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+    export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages -p /usr/bin/python2'
+    export VIRTUALENV_WRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
 
-
-[[ -f $VIRTUALENV_WRAPPER_SCRIPT ]] && source $VIRTUALENV_WRAPPER_SCRIPT
+    source $VIRTUALENV_WRAPPER_SCRIPT
+fi
