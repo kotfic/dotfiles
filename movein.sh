@@ -12,7 +12,6 @@ mklink(){
 	then
 	    echo "Backing up then linking $1 to $DOTDIR/$(basename $1)"
 	    mv $1 $1.bk
-	    rm $1
 	    ln -s $DOTDIR/$(basename $1) $1
 	else
 	    echo "Skipping $1, already a Symlink"
@@ -23,6 +22,11 @@ mklink(){
 
 mklink ~/.bash_profile
 mklink ~/.bashrc
+mklink ~/.xinitrc
+mklink ~/.Xdefaults
 
-[[ -f $(which compton) ]] && mklink ~/.compton.conf
+# compton
+[[ -f $(command -v compton 2>/dev/null) ]] && mklink ~/.compton.conf
 
+# i3
+[[ -f $(command -v i3 2>/dev/null) ]] && mklink ~/.i3/config

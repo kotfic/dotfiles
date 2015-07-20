@@ -7,11 +7,7 @@
 xmodmap -e "keycode 232 = F20"
 xmodmap -e "keycode 233 = F21"
 
-# emacs --daemon
-
-blueshift -l 42.7317:73.6925 &
-
-# dunst &
+blueshift -l 42.7317:73.6925 >/dev/null 2>&1 &
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -20,7 +16,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# exec /home/kotfic/bin/stumpwm
-# exec qtile
-# exec openbox-session
 exec /usr/bin/i3 >> /tmp/i3log.log
