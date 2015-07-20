@@ -3,10 +3,8 @@
 # for examples
 
 if [ -d "$HOME/bin"  ] ; then
-    PATH="$HOME/bin:$PATH"
+    PATH=$HOME/bin:$PATH
 fi
-
-PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -106,54 +104,25 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
-# set up python virtualenv stuff
-if [ `id -u` != '0' ]; then
-
-  export VIRTUALENVWRAPPER_VIRTUALENV="/usr/bin/virtualenv"
-  export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
-  export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-  export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute
-  export WORKON_HOME=$HOME/.envs
-  export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
-  export PIP_VIRTUALENV_BASE=$WORKON_HOME
-  export PIP_RESPECT_VIRTUALENV=true
-
-  source /usr/local/bin/virtualenvwrapper.sh
-
-fi
-
 export TERM=xterm-256color
-export EDITOR=/usr/bin/emacs
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH=$PATH:$HOME/lib/python2.7/site-packages/phpsh # Add phpsh
-
-export PYTHONPATH=~/lib/python2.7/site-packages/
-
-export NLTK_DATA=~/org/school/classes/IIST669/NLTK_Book/nltk_data
-
-function ediff() {
-        if [ "X${2}" = "X" ]; then
-                echo "USAGE: ediff <FILE 1> <FILE 2>"
-                else
-                # The --eval flag takes lisp code and evaluates it with EMACS
-                emacs --eval "(ediff-files \"$1\" \"$2\")"
-fi
-}
-
-function xdebug() {
-        export XDEBUG_CONFIG="idekey=$1"
-        echo $XDEBUG_CONFIG
-}
-
 
 
 export LC_CTYPE=en_US.UTF-8
-
-export PATH=$PATH:/usr/sbin
 
 export EDITOR="emacsclient -c"
 export ALTERNATE_EDITOR="emacsclient -c"
 
 alias e='emacsclient -c'
 
-alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/
+
+
+# Virtualenv wrapper
+export WORKON_HOME=~/.venvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages -p /usr/bin/python2'
+export VIRTUALENV_WRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+
+
+[[ -f $VIRTUALENV_WRAPPER_SCRIPT ]] && source $VIRTUALENV_WRAPPER_SCRIPT
