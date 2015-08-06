@@ -3,8 +3,15 @@
 # for examples
 
 if [ -d "$HOME/bin"  ] ; then
-    PATH=$HOME/bin:$PATH
+    export PATH=$HOME/bin:$PATH
 fi
+
+# add work spark directory
+if [ -d "/opt/spark" ] ; then
+    export SPARK_HOME=/opt/spark
+    export PATH=$PATH:$SPARK_HOME/bin
+fi
+
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -127,4 +134,9 @@ if [ -f $VIRTUALENV_WRAPPER_SCRIPT ]; then
     export VIRTUALENV_WRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
 
     source $VIRTUALENV_WRAPPER_SCRIPT
+fi
+
+
+if [ -d ~/kitware/projects/NEX/src/girder/girder ]; then
+    alias nex='workon NEX && cd ~/kitware/projects/NEX/src/girder/girder'
 fi
