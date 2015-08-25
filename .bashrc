@@ -121,6 +121,7 @@ export ALTERNATE_EDITOR="emacsclient -c"
 
 alias e='emacsclient -c'
 
+
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/
 
 
@@ -136,7 +137,27 @@ if [ -f $VIRTUALENV_WRAPPER_SCRIPT ]; then
     source $VIRTUALENV_WRAPPER_SCRIPT
 fi
 
+# TODO This should be set up with virtualenv-wrapper projects
+NEX_WORKING_DIR=~/kitware/projects/NEX/src/girder/girder
+if [ -d  $NEX_WORKING_DIR ]; then
+    alias nex='workon NEX && cd $NEX_WORKING_DIR'
+fi
 
-if [ -d ~/kitware/projects/NEX/src/girder/girder ]; then
-    alias nex='workon NEX && cd ~/kitware/projects/NEX/src/girder/girder'
+
+# Add VTK compiled libraries if folder exists
+VTK_PYTHON_LIB=/home/kotfic/kitware/projects/src/VTK/build/Wrapping/Python
+if [ -d $VTK_PYTHON_LIB ]; then
+    export PYTHONPATH=$VTK_PYTHON_LIB:$PYTHONPATH
+fi
+# Add VTK compiled libraries if folder exists
+VTK_LIB=/home/kotfic/kitware/projects/src/VTK/build/lib
+if [ -d $VTK_LIB ]; then
+    export PYTHONPATH=$VTK_LIB:$PYTHONPATH
+fi
+
+
+# Add nex aws bin to PATH
+NEX_AWS_BIN=/home/kotfic/kitware/projects/NEX/aws/bin
+if [ -d $NEX_AWS_BIN ]; then
+    export PATH=$NEX_AWS_BIN:$PATH
 fi
