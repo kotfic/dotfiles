@@ -125,6 +125,8 @@ alias e='emacsclient -c'
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/
 
 
+export PYTHONDONTWRITEBYTECODE=1
+
 # Virtualenv wrapper
 
 if [ -f $VIRTUALENV_WRAPPER_SCRIPT ]; then

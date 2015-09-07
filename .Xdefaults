@@ -36,15 +36,18 @@ URxvt.scrollstyle: rxvt
 URxvt.keysym.Shift-Insert: perl:clipboard:paste
 URxvt.iso14755: False
 
-URxvt.perl-ext-common: default,clipboard,font-size
+URxvt.perl-ext-common: default,clipboard,font-size,matcher
 
 ! copying
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 URxvt.clipboard.copycmd:  xsel -ib
 URxvt.clipboard.pastecmd: xsel -ob
+
+! Links
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
 
 ! Font size
 !URxvt.keysym.C-Up:     perl:font-size:increase
@@ -52,9 +55,6 @@ URxvt.clipboard.pastecmd: xsel -ob
 URxvt.keysym.C-Up:   perl:font-size:incglobal
 URxvt.keysym.C-Down: perl:font-size:decglobal
 
-
-URxvt.urlLauncher: firefox
-URxvt.matcher.button: 1
 
 URxvt.depth:                32
  
@@ -68,4 +68,3 @@ URxvt.font: xft:Source Code Pro Medium:pixelsize=16
 URxvt.boldFont: xft:Source Code Pro Medium:pixelsize=16
 
 URxvt*.background: [80]#1d1f21
-
