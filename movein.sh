@@ -29,7 +29,7 @@ mklink ~/.Xdefaults
 
 # Global gitignore
 mklink ~/.global_gitignore
-git config --global core.excludesfile ~/.gitignore_global
+git config --global core.excludesfile ~/.global_gitignore
 
 
 # compton
