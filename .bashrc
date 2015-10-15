@@ -122,7 +122,7 @@ export ALTERNATE_EDITOR="emacsclient -c"
 alias e='emacsclient -c'
 
 
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/
+export JAVA_HOME=/usr/lib/jvm/default/
 
 
 export PYTHONDONTWRITEBYTECODE=1
