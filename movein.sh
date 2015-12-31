@@ -20,12 +20,13 @@ mklink(){
     fi
 }
 
-cd $DOTDIR && git pull && cd $PWD
+# cd $DOTDIR && git pull && cd $PWD
 
 mklink ~/.bash_profile
 mklink ~/.bashrc
 mklink ~/.xinitrc
 mklink ~/.Xdefaults
+mklink ~/.i3status.conf
 
 # Global gitignore
 mklink ~/.global_gitignore
