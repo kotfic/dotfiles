@@ -39,5 +39,10 @@ git config --global core.excludesfile ~/.global_gitignore
 # i3
 [[ -f $(command -v i3 2>/dev/null) ]] && mklink ~/.i3/config
 
+# Install requirements
+/usr/bin/pip2 install -r ~/.dot/requirements.txt --user
 
-/usr/bin/pip2 install -r requirements.txt --user
+mkdir -p ~/.config/whizkers
+mklink ~/.config/whizkers/templates
+mklink ~/.config/whizkers/variable_sets
+mklink ~/.config/whizkers/defaults.yaml
