@@ -38,3 +38,6 @@ git config --global core.excludesfile ~/.global_gitignore
 
 # i3
 [[ -f $(command -v i3 2>/dev/null) ]] && mklink ~/.i3/config
+
+
+/usr/bin/pip2 install -r requirements.txt --user
