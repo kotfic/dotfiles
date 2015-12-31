@@ -6,6 +6,16 @@ if [ -d "$HOME/bin"  ] ; then
     export PATH=$HOME/bin:$PATH
 fi
 
+if [ -d "$HOME/.dot/bin"  ] ; then
+    export PATH=$HOME/.dot/bin:$PATH
+fi
+
+# Add locally installed packages
+if [ -d "$HOME/.local/bin"  ] ; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
+
 # add work spark directory
 if [ -d "/opt/spark" ] ; then
     export SPARK_HOME=/opt/spark
