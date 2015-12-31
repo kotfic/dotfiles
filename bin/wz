@@ -1,0 +1,8 @@
+#!/bin/bash
+
+BASE=~/.dot
+BIN=$BASE/bin
+WZ=$(which whizkers)
+
+$WZ -d $BASE $1
+$BIN/reload-desktop
