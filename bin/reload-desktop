@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # Reload the desktop
+# https://github.com/metakirby5/bash-scripts/blob/master/reload-desktop
 
-xrdb -merge ~/.Xresources &>/dev/null
+xrdb -merge ~/.Xdefaults &>/dev/null
 tmux source-file ~/.tmux.conf &>/dev/null
 
 # Reload colors
 for pts in /dev/pts/*; do
-        (echo -n "$(use-colors < ~/.Xresources)" > $pts) 2>/dev/null
+    (echo -n "$(use-colors < ~/.Xdefaults)" > $pts) 2>/dev/null
 done
 
 killall compton &>/dev/null
@@ -14,4 +15,5 @@ killall dunst &>/dev/null
 i3-msg 'restart' &>/dev/null
 
 compton &>/dev/null &
+nitrogen --restore
 # dunst &>/dev/null &

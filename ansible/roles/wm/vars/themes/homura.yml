@@ -19,3 +19,6 @@ b_magenta:    "#db9fbb"
 
 n_cyan:       "#646baa"
 b_cyan:       "#818adc"
+
+
+background_image: "{{base_dir}}/wallpapers/abstract_green_blue_purple_poly.png"

@@ -34,3 +34,5 @@ b_cyan:      "#a0d2a8"
 
 n_white:     "#d8d8d8"
 b_white:     "#eaeaea"
+
+background_image: "{{ base_dir }}/wallpapers/hal-9000.png"
