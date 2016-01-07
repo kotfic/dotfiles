@@ -1,0 +1,169 @@
+set $mod Mod4
+
+set $background {{ background }}
+set $foreground {{ foreground }}
+set $gray       {{ selection }}
+set $primary    {{ n_white }}
+set $secondary  {{ n_green }}
+set $tertiary   {{ n_red }}
+set $warning    {{ b_red }}
+
+font pango:Source\ Code\ Pro\ Medium 12
+
+floating_modifier $mod
+
+bindsym $mod+Shift+q kill
+
+# run +ls so we don't use a login terminal every time
+bindsym $mod+Return exec urxvt +ls
+
+bindsym $mod+d exec dmenu_run -nb "#1d1f21" -nf "#de935f" -sb "#f0c674" -sf "#1d1f21" -fn "Source Code Pro Medium:pixelsize=16:antialias=true:hinting=true"
+
+bindsym $mod+Shift+d exec dmenu_run
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen
+
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+bindsym $mod+1 workspace 1: chat
+bindsym $mod+2 workspace 2: web
+bindsym $mod+3 workspace 3: emacs
+bindsym $mod+4 workspace 4: term
+bindsym $mod+5 workspace 5: mail
+bindsym $mod+6 workspace 6: agenda
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Tab workspace back_and_forth
+
+
+workspace_auto_back_and_forth yes
+
+bindsym $mod+Control+Shift+Left move window to workspace prev
+bindsym $mod+Control+Shift+Right move window to workspace next
+
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+Control+Up move workspace to output up
+bindsym $mod+Control+Down move workspace to output down
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+
+# colors                BORDER      BACKGROUND TEXT        INDICATOR
+client.focused          $primary    $primary   $background $primary
+client.focused_inactive $background $primary   $foreground $background
+client.unfocused        $gray       $gray      $background $secondary
+client.urgent           $warning    $warning   $foreground $warning
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command    i3status
+    position          bottom
+    workspace_buttons yes
+
+    font pango:Source Code Pro Medium 10
+
+    colors {
+        background $background
+        statusline $primary
+
+        # Colors go <border> <background> <text> <indicator>
+        focused_workspace $secondary $background $foreground
+        active_workspace $primary $background $foreground
+        inactive_workspace $primary $background $foreground
+        urgent_workspace $foreground $warning
+    }
+}
+
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [instance="float"] floating enable
+# arandr
+for_window [title="Screen Layout Editor"] floating enable
+# nitrogen
+for_window [title="Nitrogen"] floating enable
+# popup capture for org-protocol
+for_window [title="Floating Capture"] floating enable
+# commit messages in emacs
+for_window [title="COMMIT_EDITMSG"] floating enable
+
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+mode "jump" {
+     bindsym c workspace 1: chat; mode "default"
+     bindsym w workspace 2: web; mode "default"
+     bindsym e workspace 3: emacs; mode "default"
+     bindsym t workspace 4: term; mode "default"
+     bindsym m workspace 5: mail; mode "default"
+     bindsym a workspace 6: agenda; mode "default"
+
+     bindsym 7 workspace 7; mode "default"
+     bindsym 8 workspace 8; mode "default"
+     bindsym 9 workspace 9; mode "default"
+     bindsym 0 workspace 10; mode "default"
+
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+j mode "jump"
+
+for_window [class="^.*"] border pixel 1
+
+# Run these
+exec compton -CGb
+exec disable-track.sh
+exec nitrogen --restore
