@@ -1,0 +1,21 @@
+background:   "#101015"
+n_black:      "#202025"
+b_black:      "#303035"
+
+n_red:        "#aa5171"
+b_red:        "#dc6892"
+
+n_green:      "#9589aa"
+b_green:      "#c0b1dc"
+
+n_yellow:     "#a795a6"
+b_yellow:     "#d9c1d7"
+
+n_blue:       "#7e7eaa"
+b_blue:       "#a3a3dc"
+
+n_magenta:    "#a97b91"
+b_magenta:    "#db9fbb"
+
+n_cyan:       "#646baa"
+b_cyan:       "#818adc"

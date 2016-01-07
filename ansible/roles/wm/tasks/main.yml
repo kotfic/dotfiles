@@ -1,0 +1,29 @@
+---
+- name: Include theme variables
+  include_vars: "themes/{{theme}}.yml"
+  when: theme is defined
+
+- name: Ensure rendered folder
+  file:
+    path: ~/.dot/rendered/
+    state: directory
+
+- name: Render template files
+  template:
+    src: "{{ item['src'] }}"
+    dest: "{{ item['dest'] }}"
+  with_items:
+    - src: Xdefaults.j2
+      dest: ~/.dot/rendered/.Xdefaults
+
+- name: Link template files
+  file:
+    path: "{{ item }}"
+    src: "~/.dot/rendered/{{item|basename}}"
+    state: link
+  with_items:
+    - ~/.Xdefaults
+
+
+- name: Reload the desktop
+  shell: "~/.dot/bin/reload-desktop"
