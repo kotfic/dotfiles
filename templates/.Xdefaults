@@ -42,12 +42,6 @@ URxvt.color7:       {{ n_white }}
 URxvt.color15:      {{ b_white }}
 
 
-
-Emacs.font:      {{ #term_fonts }}xft:{{ . }}:pixelsize={{ pixelsize }}:antialias=true:hinting=true,{{ /term_fonts }}
-Emacs.boldFont:  {{ #term_fonts }}xft:{{ . }}{{ #use_bold }}:bold{{ /use_bold }}:pixelsize={{ pixelsize }}:antialias=true:hinting=true,{{ /term_fonts }}
-Emacs.letterSpace: {{ term_letterspace }}
-
-
 URxvt.saveLines: 12000
 
 URxvt.scrollBar: false
