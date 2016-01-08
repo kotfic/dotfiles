@@ -24,6 +24,8 @@
       dest: ~/.i3blocks.conf
     - src: zshrc.j2
       dest: ~/.zshrc
+    - src: xinitrc.j2
+      dest: ~/.xinitrc
 #    - src: i3status.conf.j2
 #      dest: ~/.i3status.conf
 
