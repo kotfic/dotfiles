@@ -1,0 +1,79 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle :compinstall filename '/home/kotfic/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+autoload -U promptinit
+promptinit
+
+autoload -U colors
+colors
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt HIST_IGNORE_DUPS
+setopt APPENDHISTORY
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+if [ -d "$HOME/bin"  ] ; then
+    export PATH=$HOME/bin:$PATH
+fi
+
+if [ -d "/home/kotfic/.dot/bin"  ] ; then
+    export PATH=/home/kotfic/.dot/bin:$PATH
+fi
+
+# Add locally installed packages
+if [ -d "$HOME/.local/bin"  ] ; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
+# add work spark directory
+if [ -d "/opt/spark" ] ; then
+    export SPARK_HOME=/opt/spark
+    export PATH=$PATH:$SPARK_HOME/bin
+fi
+
+FISH=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -d "/opt/spark" ] ; then
+    source $FISH
+fi
+
+PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%}\
+%{$fg_bold[blue]%}:%{$reset_color%}\
+%{$fg_bold[cyan]%}%~%{$reset_color%}\
+%{$fg_bold[blue]%} ⇒%{$reset_color%} "
+
+
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+fi
+
+export TERM=xterm-256color
+export LC_CTYPE=en_US.UTF-8
+export EDITOR="emacsclient -c"
+export ALTERNATE_EDITOR="emacsclient -c"
+
+export JAVA_HOME=/usr/lib/jvm/default/
+export PYTHONDONTWRITEBYTECODE=1
+
+
+if [ -f $VIRTUALENV_WRAPPER_SCRIPT ]; then
+    export WORKON_HOME=~/.venvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+    export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages -p /usr/bin/python2'
+    export VIRTUALENV_WRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+
+    source $VIRTUALENV_WRAPPER_SCRIPT
+fi

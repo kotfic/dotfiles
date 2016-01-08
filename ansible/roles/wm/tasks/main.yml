@@ -22,12 +22,13 @@
       dest: ~/.i3/config
     - src: i3blocks.conf.j2
       dest: ~/.i3blocks.conf
+    - src: zshrc.j2
+      dest: ~/.zshrc
 #    - src: i3status.conf.j2
 #      dest: ~/.i3status.conf
 
-
-- name: Source bashrc
-  shell: ". ~/.bashrc"
+- name: Source zshrc
+  shell: ". ~/.zshrc"
 
 - name: Reload the desktop
   shell: "reload-desktop"

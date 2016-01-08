@@ -15,7 +15,7 @@ bindsym $mod+Shift+q kill
 font pango:Source Code Pro Medium, pango:Noto Emoji 12
 
 # run +ls so we don't use a login terminal every time
-bindsym $mod+Return exec urxvt +ls
+bindsym $mod+Return exec urxvt -e /usr/bin/zsh
 
 bindsym $mod+d exec dmenu_run -nb "#1d1f21" -nf "#de935f" -sb "#f0c674" -sf "#1d1f21"
 
