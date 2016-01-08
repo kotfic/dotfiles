@@ -55,8 +55,8 @@ PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%}\
 
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
+    alias ls='ls --color=auto $*'
+    alias grep='grep --color=auto $*'
 fi
 
 export TERM=xterm-256color
