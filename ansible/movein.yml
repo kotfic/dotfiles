@@ -1,13 +1,15 @@
 ---
-- hosts: localhost
+- name: Probe OS type
+  hosts: localhost
   connection: local
   tasks:
     - group_by: key="os_{{ ansible_distribution }}"
 
-- hosts: os_Archlinux
+- name: OS specific dependencies
+  hosts: os_Archlinux
   become: yes
   tasks:
-    - name: Update pacman
+    # - name: Update pacman
 
     - name: Install move in dependencies
       pacman:
@@ -15,13 +17,34 @@
         state: latest
       with_items:
         - i3
-        - i3blocks
+#        - i3blocks   - needs yaourt - how do?
         - zsh
         - zsh-completions
         - emacs
         - nitrogen
+        - git
 
-- hosts: localhost
+- name: Common configurations
+  hosts: localhost
+  connection: local
+  roles:
+    - role: git
+      git_config:
+        user:
+          name: Christopher Kotfila
+          email: chris.kotfila@kitware.com
+        merge:
+          conflictstyle: diff3
+        rerere:
+          enabled: true
+        core:
+          editor: "emacsclient -c"
+          excludesfile: "~/.gitexcludesfile"
+
+
+
+- name: WM themes and backgrounds
+  hosts: localhost
   connection: local
   roles:
     - role: wm

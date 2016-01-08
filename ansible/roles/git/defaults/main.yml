@@ -1,0 +1,43 @@
+---
+
+git_config:
+  user:
+    name: Your Name
+    email: your-email@exemple.org
+  color:
+    branch: auto
+    diff: auto
+    interactive: auto
+    status: auto
+    ui: auto
+  core:
+    editor: "emacsclient -c"
+    excludesfile: "~/.gitexcludesfile"
+
+git_ignore:
+  - '*.com'
+  - '*.class'
+  - '*.dll'
+  - '*.exe'
+  - '*.o'
+  - '*.so'
+  - '*.7z'
+  - '*.dmg'
+  - '*.gz'
+  - '*.iso'
+  - '*.jar'
+  - '*.rar'
+  - '*.tar'
+  - '*.zip'
+  - '*.log'
+  - '*.sql'
+  - '*.sqlite'
+  - '.DS_Store'
+  - '.DS_Store?'
+  - '._*'
+  - '.Spotlight-V100'
+  - '.Trashes'
+  - 'ehthumbs.db'
+  - 'Thumbs.db'
+  - '*.pyc'
+  - '.term-*'
