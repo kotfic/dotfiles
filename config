@@ -2,22 +2,22 @@ set $mod Mod4
 
 set $background #1d1f21
 set $foreground #c5c8c6
-set $gray       #282a2e
-set $primary    #b5bd68
-set $secondary  #f0c674
-set $tertiary   #de935f
+set $gray       #373b41
+set $primary    #929593
+set $secondary  #778900
+set $tertiary   #912226
 set $warning    #cc6666
-
-font pango:Source\ Code\ Pro\ Medium 12
 
 floating_modifier $mod
 
 bindsym $mod+Shift+q kill
 
+font pango:Source Code Pro Medium, pango:Noto Emoji 12
+
 # run +ls so we don't use a login terminal every time
 bindsym $mod+Return exec urxvt +ls
 
-bindsym $mod+d exec dmenu_run -nb "#1d1f21" -nf "#de935f" -sb "#f0c674" -sf "#1d1f21" -fn "Source Code Pro Medium:pixelsize=16:antialias=true:hinting=true"
+bindsym $mod+d exec dmenu_run -nb "#1d1f21" -nf "#de935f" -sb "#f0c674" -sf "#1d1f21"
 
 bindsym $mod+Shift+d exec dmenu_run
 
@@ -46,12 +46,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
-bindsym $mod+1 workspace 1: chat
-bindsym $mod+2 workspace 2: web
-bindsym $mod+3 workspace 3: emacs
-bindsym $mod+4 workspace 4: term
-bindsym $mod+5 workspace 5: mail
-bindsym $mod+6 workspace 6: agenda
+bindsym $mod+1 workspace 1:🗪
+bindsym $mod+2 workspace 2:🖧
+bindsym $mod+3 workspace 3:ξ
+bindsym $mod+4 workspace 4:🐚
+bindsym $mod+5 workspace 5:🖃
+bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -90,20 +90,19 @@ client.urgent           $warning    $warning   $foreground $warning
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command    i3status
+    status_command    i3blocks
     position          bottom
     workspace_buttons yes
-    
-    font pango:Source Code Pro Medium 10
- 
+    strip_workspace_numbers yes
+
     colors {
         background $background
         statusline $primary
-        
+
         # Colors go <border> <background> <text> <indicator>
         focused_workspace $secondary $background $foreground
         active_workspace $primary $background $foreground
-        inactive_workspace $primary $background $foreground
+        inactive_workspace $background $background $foreground
         urgent_workspace $foreground $warning
     }
 }
@@ -144,19 +143,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "jump" {
-     bindsym c workspace 1: chat; mode "default"
-     bindsym w workspace 2: web; mode "default"
-     bindsym e workspace 3: emacs; mode "default"
-     bindsym t workspace 4: term; mode "default"
-     bindsym m workspace 5: mail; mode "default"
-     bindsym a workspace 6: agenda; mode "default"
+     bindsym c workspace 1:🗪; mode "default"
+     bindsym w workspace 2:🖧; mode "default"
+     bindsym e workspace 3:ξ; mode "default"
+     bindsym t workspace 4:🐚; mode "default"
+     bindsym m workspace 5:🖃; mode "default"
 
+     bindsym 6 workspace 6:; mode "default"
      bindsym 7 workspace 7; mode "default"
      bindsym 8 workspace 8; mode "default"
      bindsym 9 workspace 9; mode "default"
      bindsym 0 workspace 10; mode "default"
 
-     bindsym Escape mode "default"     
+     bindsym Escape mode "default"
 }
 
 bindsym $mod+j mode "jump"

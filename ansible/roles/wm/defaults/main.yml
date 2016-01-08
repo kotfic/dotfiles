@@ -8,31 +8,51 @@ term_letterspace: 0
 term_internalBorder: 3
 
 # Colors
-background:   "#272727"
-foreground:   "#fafafa"
+# https://github.com/chriskempson/tomorrow-theme/blob/master/Xdefaults/Tomorrow%20Night
+background:   "#1d1f21"
+foreground:   "#c5c8c6"
 
-n_black:     "#353540"
-b_black:     "#545466"
+selection:    "#373b41"
+currentline:  "#282a2e"
 
-n_red:       "#aa706b"
-b_red:       "#d28a84"
+# color0
+n_black:     "#000000"
+# color8
+b_black:     "#666666"
 
-n_green:     "#aaaa76"
-b_green:     "#d2d291"
+# color1
+n_red:       "#912226"
+# color9
+b_red:       "#cc6666"
 
-n_yellow:    "#c8b8a1"
-b_yellow:    "#f0dcc1"
+# color2
+n_green:     "#778900"
+# color10
+b_green:     "#b5bd68"
 
-n_blue:      "#87aaa6"
-b_blue:      "#a6d2cd"
+# color3
+n_yellow:    "#ae7b00"
+# color11
+b_yellow:    "#f0c674"
 
-n_magenta:   "#7cb6c8"
-b_magenta:   "#94daf0"
+# color4
+n_blue:      "#1d2594"
+# color12
+b_blue:      "#81a2be"
 
-n_cyan:      "#82aa88"
-b_cyan:      "#a0d2a8"
+# color5
+n_magenta:   "#682a9b"
+# color13
+b_magenta:   "#b294bb"
 
-n_white:     "#d8d8d8"
-b_white:     "#eaeaea"
+# color6
+n_cyan:      "#2b6651"
+# color14
+b_cyan:      "#8abeb7"
+
+# color7
+n_white:     "#929593"
+# color15
+b_white:     "#ecebec"
 
 background_image: "{{ base_dir }}/wallpapers/hal-9000.png"

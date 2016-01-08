@@ -18,6 +18,10 @@
       dest: ~/.config/nitrogen/bg-saved.cfg
     - src: nitrogen.cfg.j2
       dest: ~/.config/nitrogen/nitrogen.cfg
+    - src: i3config.j2
+      dest: ~/.i3/config
+    - src: i3status.conf.j2
+      dest: ~/.i3status.conf
 
 - name: Source bashrc
   shell: ". ~/.bashrc"

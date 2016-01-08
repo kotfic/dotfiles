@@ -1,6 +1,25 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: false
+  tasks:
+    - group_by: key="os_{{ ansible_distribution }}"
+
+- hosts: os_Archlinux
+  become: yes
+  tasks:
+    - name: Update pacman
+
+    - name: Install move in dependencies
+      pacman:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - i3
+        - i3blocks
+        - emacs
+        - nitrogen
+
+- hosts: localhost
+  connection: local
   roles:
     - role: wm
