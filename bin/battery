@@ -1,0 +1,41 @@
+#!/bin/env python
+
+import subprocess
+import re
+import sys
+
+
+if __name__ == "__main__":
+    GREEN = sys.argv[1]
+    YELLOW = sys.argv[2]
+    RED = sys.argv[3]
+    percent = "Unknown"
+    remaining = None
+
+    acpi = subprocess.check_output("acpi").decode("utf-8")
+
+
+    try:
+        percent = int(re.findall("(\d+)%", acpi)[0])
+    except IndexError:
+        pass
+
+    msg = "{}%".format(percent)
+    status = u"🔋" if u"Discharging" in acpi else u"⚡"
+
+
+    color = GREEN
+
+    if percent <= 20:
+        color = RED
+        try:
+            remaining = re.findall("(\d{2}:\d{2}:\d{2})", acpi)[0]
+        except IndexError:
+            pass
+
+    elif percent > 20 and percent < 60:
+        color = YELLOW
+
+    print("<span gravity='east'>{}</span> <span color=\"{}\">{}</span>{} "
+          .format(status, GREEN, msg,
+                  " (" + remaining + ")" if remaining is not None else ""))

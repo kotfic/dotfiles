@@ -1,0 +1,9 @@
+[battery]
+command=battery "{{ n_green }}" "{{ n_yellow }}" "{{ n_red }}"
+markup=pango
+interval=5
+
+[time]
+command=date +'%Y-%m-%d %T'
+markup=pango
+interval=1
