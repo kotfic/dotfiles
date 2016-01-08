@@ -42,19 +42,17 @@ if [ -d "/opt/spark" ] ; then
 fi
 
 FISH=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 if [ -d "/opt/spark" ] ; then
     source $FISH
 fi
 
-PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%}\
-%{$fg_bold[blue]%}:%{$reset_color%}\
-%{$fg_bold[cyan]%}%~%{$reset_color%}\
-%{$fg_bold[blue]%} ⇒%{$reset_color%} "
+PROMPT="%{$fg[green]%}%n@%m%{$reset_color%}\
+%{$fg[blue]%}:%{$reset_color%}\
+%{$fg[cyan]%}%~%{$reset_color%}\
+%{$fg[blue]%} ⇒%{$reset_color%} "
 
 
 if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
     alias ls='ls --color=auto $*'
     alias grep='grep --color=auto $*'
 fi
@@ -77,3 +75,5 @@ if [ -f $VIRTUALENV_WRAPPER_SCRIPT ]; then
 
     source $VIRTUALENV_WRAPPER_SCRIPT
 fi
+
+export LS_COLORS=':{% for k, v in ls_colors.items() %}{{ k|replace('star_', '*') }}={{ v }}:{% endfor %}'

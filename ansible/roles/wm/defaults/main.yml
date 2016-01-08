@@ -1,9 +1,8 @@
 term_fonts:
   - "Source Code Pro "
-  - "M+ 1p"
-  - "Baekmuk Gulim"
+  - "Noto Emoji"
 use_bold: false
-pixelsize: 14
+pixelsize: 12
 term_letterspace: 0
 term_internalBorder: 3
 
@@ -21,38 +20,162 @@ n_black:     "#000000"
 b_black:     "#666666"
 
 # color1
-n_red:       "#912226"
+b_red:       "#912226"
 # color9
-b_red:       "#cc6666"
+n_red:       "#cc6666"
 
 # color2
-n_green:     "#778900"
+b_green:     "#778900"
 # color10
-b_green:     "#b5bd68"
+n_green:     "#b5bd68"
 
 # color3
-n_yellow:    "#ae7b00"
+b_yellow:    "#ae7b00"
 # color11
-b_yellow:    "#f0c674"
+n_yellow:    "#f0c674"
 
 # color4
-n_blue:      "#1d2594"
+b_blue:      "#1d2594"
 # color12
-b_blue:      "#81a2be"
+n_blue:      "#81a2be"
 
 # color5
-n_magenta:   "#682a9b"
+b_magenta:   "#682a9b"
 # color13
-b_magenta:   "#b294bb"
+n_magenta:   "#b294bb"
 
 # color6
-n_cyan:      "#2b6651"
+b_cyan:      "#2b6651"
 # color14
-b_cyan:      "#8abeb7"
+n_cyan:      "#8abeb7"
 
 # color7
-n_white:     "#929593"
+b_white:     "#929593"
 # color15
-b_white:     "#ecebec"
+n_white:     "#ecebec"
 
 background_image: "{{ base_dir }}/wallpapers/hal-9000.png"
+
+ls_colors:
+  rs: 0
+  di: 00;34
+  ln: 00;36
+  mh: 00
+  pi: 40;33
+  so: 00;35
+  do: 00;35
+  bd: 40;33;01
+  cd: 40;33;01
+  or: 40;31;01
+  mi: 00
+  su: 37;41
+  sg: 30;43
+  ca: 30;41
+  tw: 30;42
+  ow: 34;42
+  st: 37;44
+  ex: 00;32
+  star_.tar: 01;31
+  star_.tgz: 01;31
+  star_.arc: 01;31
+  star_.arj: 01;31
+  star_.taz: 01;31
+  star_.lha: 01;31
+  star_.lz4: 01;31
+  star_.lzh: 01;31
+  star_.lzma: 01;31
+  star_.tlz: 01;31
+  star_.txz: 01;31
+  star_.tzo: 01;31
+  star_.t7z: 01;31
+  star_.zip: 01;31
+  star_.z: 01;31
+  star_.Z: 01;31
+  star_.dz: 01;31
+  star_.gz: 01;31
+  star_.lrz: 01;31
+  star_.lz: 01;31
+  star_.lzo: 01;31
+  star_.xz: 01;31
+  star_.bz2: 01;31
+  star_.bz: 01;31
+  star_.tbz: 01;31
+  star_.tbz2: 01;31
+  star_.tz: 01;31
+  star_.deb: 01;31
+  star_.rpm: 01;31
+  star_.jar: 01;31
+  star_.war: 01;31
+  star_.ear: 01;31
+  star_.sar: 01;31
+  star_.rar: 01;31
+  star_.alz: 01;31
+  star_.ace: 01;31
+  star_.zoo: 01;31
+  star_.cpio: 01;31
+  star_.7z: 01;31
+  star_.rz: 01;31
+  star_.cab: 01;31
+  star_.jpg: 01;35
+  star_.jpeg: 01;35
+  star_.gif: 01;35
+  star_.bmp: 01;35
+  star_.pbm: 01;35
+  star_.pgm: 01;35
+  star_.ppm: 01;35
+  star_.tga: 01;35
+  star_.xbm: 01;35
+  star_.xpm: 01;35
+  star_.tif: 01;35
+  star_.tiff: 01;35
+  star_.png: 01;35
+  star_.svg: 01;35
+  star_.svgz: 01;35
+  star_.mng: 01;35
+  star_.pcx: 01;35
+  star_.mov: 01;35
+  star_.mpg: 01;35
+  star_.mpeg: 01;35
+  star_.m2v: 01;35
+  star_.mkv: 01;35
+  star_.webm: 01;35
+  star_.ogm: 01;35
+  star_.mp4: 01;35
+  star_.m4v: 01;35
+  star_.mp4v: 01;35
+  star_.vob: 01;35
+  star_.qt: 01;35
+  star_.nuv: 01;35
+  star_.wmv: 01;35
+  star_.asf: 01;35
+  star_.rm: 01;35
+  star_.rmvb: 01;35
+  star_.flc: 01;35
+  star_.avi: 01;35
+  star_.fli: 01;35
+  star_.flv: 01;35
+  star_.gl: 01;35
+  star_.dl: 01;35
+  star_.xcf: 01;35
+  star_.xwd: 01;35
+  star_.yuv: 01;35
+  star_.cgm: 01;35
+  star_.emf: 01;35
+  star_.ogv: 01;35
+  star_.ogx: 01;35
+  star_.aac: 00;36
+  star_.au: 00;36
+  star_.flac: 00;36
+  star_.m4a: 00;36
+  star_.mid: 00;36
+  star_.midi: 00;36
+  star_.mka: 00;36
+  star_.mp3: 00;36
+  star_.mpc: 00;36
+  star_.ogg: 00;36
+  star_.ra: 00;36
+  star_.wav: 00;36
+  star_.oga: 00;36
+  star_.opus: 00;36
+  star_.spx: 00;36
+  star_.xspf: 00;36
