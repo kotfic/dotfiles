@@ -73,3 +73,56 @@ URxvt.keysym.C-Down: perl:font-size:decglobal
 
 URxvt.depth:                32
 URxvt.loginShell:           true
+
+
+
+! Enabled modi
+rofi.modi:                           window,run,ssh
+! Window opacity
+rofi.opacity:                        100
+! Window width
+rofi.width:                          50
+! Number of lines
+rofi.lines:                          15
+! Number of columns
+rofi.columns:                        1
+! Font to use
+rofi.font:                           {{term_fonts[0]}} {{pixelsize}}
+! Foreground color
+rofi.fg:                             {{ foreground }}
+! Background color
+rofi.bg:                             {{ background }}
+! Foreground color for active row
+rofi.fg-active:                      {{ foreground }}
+! Foreground color for urgent row
+rofi.fg-urgent:                      {{ n_red }}
+! Foreground color for highlighted active row
+rofi.hlfg-active:                    {{ n_green }}
+! Foreground color for highlighted urgent row
+rofi.hlfg-urgent:                    {{ b_red }}
+! Background color for active row
+rofi.bg-active:                      {{ background }}
+! Background color for urgent row
+rofi.bg-urgent:                      {{ background }}
+! Background color for highlighted active row
+rofi.hlbg-active:                    {{ b_green }}
+! Background color for highlighted urgent row
+rofi.hlbg-urgent:                    {{ background }}
+! Background color for alternating row
+rofi.bgalt:                          {{ background }}
+! Foreground color for highlighted row
+rofi.hlfg:                           {{ n_cyan }}
+! Background color for highlighted row
+rofi.hlbg:                           {{ currentline }}
+! Border color
+rofi.bc:                             {{ n_cyan }}
+! Use extended color scheme
+rofi.bw:                             1
+! Location on screen
+rofi.location:                       1
+! Padding
+rofi.padding:                        5
+! Y-offset relative to location
+rofi.yoffset:                        0
+! X-offset relative to location
+rofi.xoffset:                        0
