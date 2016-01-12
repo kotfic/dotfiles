@@ -16,10 +16,13 @@
         name: "{{ item }}"
         state: latest
       with_items:
-        - i3
+        - i3-wm
 #        - i3blocks   - needs yaourt - how do?
         - zsh
         - zsh-completions
+        - zsh-syntax-highlighting
+        - noto-fonts
+        - noto-fonts-emoji
         - emacs
         - nitrogen
         - git
