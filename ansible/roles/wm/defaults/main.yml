@@ -14,6 +14,8 @@ foreground:   "#c5c8c6"
 selection:    "#373b41"
 currentline:  "#282a2e"
 
+comment: "#999999"
+
 # color0
 n_black:     "#000000"
 # color8
@@ -53,6 +55,13 @@ n_cyan:      "#8abeb7"
 b_white:     "#929593"
 # color15
 n_white:     "#ecebec"
+
+# extra
+n_orange: "#e78c45"
+
+# extra
+n_purple: "#c397d8"
+
 
 background_image: "{{ base_dir }}/wallpapers/hal-9000.png"
 

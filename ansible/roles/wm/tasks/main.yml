@@ -26,6 +26,11 @@
       dest: ~/.zshrc
     - src: xinitrc.j2
       dest: ~/.xinitrc
+    - src: dynamic-theme.el.j2
+      dest: ~/.emacs.d/dynamic-theme.el
+
+- name: Update emacs server theme
+  shell: "emacsclient --eval \"(load-theme 'dynamic)\""
 
 - name: Source zshrc
   shell: ". ~/.zshrc"
