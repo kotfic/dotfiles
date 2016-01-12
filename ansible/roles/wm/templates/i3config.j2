@@ -17,7 +17,8 @@ font {% for item in term_fonts %} pango:{{item}}, {% endfor %} {{ pixelsize }}
 # run +ls so we don't use a login terminal every time
 bindsym $mod+Return exec urxvt -e /usr/bin/zsh
 
-bindsym $mod+d exec dmenu_run -nb "{{ background }}" -nf "{{ foreground }}" -sb "{{ selection }}" -sf "{{ n_cyan }}" -fn "{{ term_fonts[0] }}-{{ pixelsize }}"
+# bindsym $mod+d exec dmenu_run -nb "{{ background }}" -nf "{{ foreground }}" -sb "{{ selection }}" -sf "{{ n_cyan }}" -fn "{{ term_fonts[0] }}-{{ pixelsize }}"
+bindsym $mod+d exec rofi -show run
 
 
 bindsym $mod+Left focus left

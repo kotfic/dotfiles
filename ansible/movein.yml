@@ -26,6 +26,7 @@
         - emacs
         - nitrogen
         - git
+        - rofi
 
 - name: Common configurations
   hosts: localhost
