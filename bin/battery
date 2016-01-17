@@ -37,5 +37,5 @@ if __name__ == "__main__":
         color = YELLOW
 
     print("<span gravity='east'>{}</span> <span color=\"{}\">{}</span>{} "
-          .format(status, GREEN, msg,
+          .format(status, color, msg,
                   " (" + remaining + ")" if remaining is not None else ""))
