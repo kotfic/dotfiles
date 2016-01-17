@@ -44,7 +44,8 @@
         core:
           editor: "emacsclient -c"
           excludesfile: "~/.gitexcludesfile"
-
+        status:
+          submoduleSummary: true
 
 
 - name: WM themes and backgrounds
