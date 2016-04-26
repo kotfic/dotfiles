@@ -18,6 +18,7 @@
       with_items:
         - i3-wm
 #        - i3blocks   - needs yaourt - how do?
+#        - mu
         - zsh
         - zsh-completions
         - zsh-syntax-highlighting
