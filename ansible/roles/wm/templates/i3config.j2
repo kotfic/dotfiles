@@ -19,6 +19,7 @@ bindsym $mod+Return exec urxvt -e /usr/bin/zsh
 
 # bindsym $mod+d exec dmenu_run -nb "{{ background }}" -nf "{{ foreground }}" -sb "{{ selection }}" -sf "{{ n_cyan }}" -fn "{{ term_fonts[0] }}-{{ pixelsize }}"
 bindsym $mod+d exec rofi -show run
+bindsym $mod+s exec rofi -show ssh
 
 
 bindsym $mod+Left focus left
@@ -36,7 +37,7 @@ bindsym $mod+v split v
 
 bindsym $mod+f fullscreen
 
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 

@@ -22,3 +22,5 @@ b_cyan:       "#818adc"
 
 
 background_image: "{{base_dir}}/wallpapers/abstract_green_blue_purple_poly.png"
+
+ls_colors: {}

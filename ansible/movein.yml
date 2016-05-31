@@ -29,6 +29,29 @@
         - git
         - rofi
 
+- name: OS specific dependencies
+  hosts: os_Ubuntu
+  become: yes
+  tasks:
+    # - name: Update pacman
+
+    - name: Install move in dependencies
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - i3-wm
+        - zsh
+        - zsh-completions
+        - zsh-syntax-highlighting
+        - noto-fonts
+        - noto-fonts-emoji
+        - emacs
+        - nitrogen
+        - git
+        - rofi
+
+
 - name: Common configurations
   hosts: localhost
   connection: local
