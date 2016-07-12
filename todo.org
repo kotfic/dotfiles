@@ -1,0 +1,7 @@
+
+* TODO Add vagrant-ssh-config mangler bin/
+:PROPERTIES:
+:CREATED: [2016-07-12 Tue]
+:END:
+
+Make sure it sets up the cron as well
