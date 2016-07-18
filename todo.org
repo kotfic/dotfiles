@@ -5,3 +5,11 @@
 :END:
 
 Make sure it sets up the cron as well
+
+
+* TODO Add rofi config directory w/github_repos
+:PROPERTIES:
+:CREATED: [2016-07-12 Tue]
+:END:
+
+  [[file:~/.dot/todo.org::*Add%20vagrant-ssh-config%20mangler%20bin/][Add vagrant-ssh-config mangler bin/]]
