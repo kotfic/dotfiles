@@ -19,7 +19,9 @@ bindsym $mod+Return exec urxvt -e /usr/bin/zsh
 
 # bindsym $mod+d exec dmenu_run -nb "{{ background }}" -nf "{{ foreground }}" -sb "{{ selection }}" -sf "{{ n_cyan }}" -fn "{{ term_fonts[0] }}-{{ pixelsize }}"
 bindsym $mod+d exec rofi -show run
-bindsym $mod+s exec rofi -show ssh
+bindsym $mod+s exec rofi -disable-history -show ssh
+bindsym $mod+o exec chromium $(cat ~/.config/rofi/github_repos | rofi -dmenu) > /dev/null
+
 
 
 bindsym $mod+Left focus left
